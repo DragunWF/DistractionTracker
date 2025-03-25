@@ -4,6 +4,8 @@
 
 A lightweight Windows Forms application to help you track and minimize distractions during deep work sessions. Log, analyze, and understand your focus-breaking moments to improve productivity.
 
+NOTE: **This app is still in development**
+
 ## Features
 
 - Real-time distraction logging
@@ -30,10 +32,6 @@ A lightweight Windows Forms application to help you track and minimize distracti
 2. Whenever a distraction occurs, quickly log it
 3. Review your distraction patterns
 4. Improve your focus!
-
-## Contributing
-
-Contributions are welcome! Please read the contributing guidelines before getting started.
 
 ## License
 
