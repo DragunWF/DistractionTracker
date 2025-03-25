@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            distractionDataGridView = new DataGridView();
             DistractionName = new DataGridViewTextBoxColumn();
             DistractionCount = new DataGridViewTextBoxColumn();
             submitBtn = new Button();
@@ -38,7 +38,7 @@
             label2 = new Label();
             viewSessionsBtn = new Button();
             viewOverallStatsBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)distractionDataGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,14 +50,14 @@
             label1.TabIndex = 1;
             label1.Text = "Distraction";
             // 
-            // dataGridView1
+            // distractionDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { DistractionName, DistractionCount });
-            dataGridView1.Location = new Point(12, 120);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(269, 275);
-            dataGridView1.TabIndex = 2;
+            distractionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            distractionDataGridView.Columns.AddRange(new DataGridViewColumn[] { DistractionName, DistractionCount });
+            distractionDataGridView.Location = new Point(12, 120);
+            distractionDataGridView.Name = "distractionDataGridView";
+            distractionDataGridView.Size = new Size(269, 275);
+            distractionDataGridView.TabIndex = 2;
             // 
             // DistractionName
             // 
@@ -97,6 +97,7 @@
             saveBtn.TabIndex = 5;
             saveBtn.Text = "Save and Start New Session";
             saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
             // 
             // label2
             // 
@@ -116,6 +117,7 @@
             viewSessionsBtn.TabIndex = 7;
             viewSessionsBtn.Text = "View Sessions";
             viewSessionsBtn.UseVisualStyleBackColor = true;
+            viewSessionsBtn.Click += this.viewSessionsBtn_Click;
             // 
             // viewOverallStatsBtn
             // 
@@ -137,18 +139,18 @@
             Controls.Add(saveBtn);
             Controls.Add(distractionComboBox);
             Controls.Add(submitBtn);
-            Controls.Add(dataGridView1);
+            Controls.Add(distractionDataGridView);
             Controls.Add(label1);
             Name = "MainForm";
             Text = "Distraction Tracker";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)distractionDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView distractionDataGridView;
         private Button submitBtn;
         private DataGridViewTextBoxColumn DistractionName;
         private DataGridViewTextBoxColumn DistractionCount;

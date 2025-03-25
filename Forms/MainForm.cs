@@ -1,12 +1,43 @@
+using System.Runtime.CompilerServices;
+
 namespace DistractionsTracker
 {
     public partial class MainForm : Form
     {
+        private List<string> recentDistractions = new();
+
         public MainForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Are you sure you want to save this session? This will clear all distractions you've listed for the current session.",
+                "Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                distractionComboBox.Text = "";
+                distractionDataGridView.Rows.Clear();
+                distractionComboBox.Items.Clear();
+            }
+        }
+
+        private void viewSessionsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void viewOverallStatsBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
@@ -18,7 +49,53 @@ namespace DistractionsTracker
                 return;
             }
 
-            // TODO: Implement
+            SubmitDistraction(distractionInput);
+            distractionComboBox.Text = "";
+        }
+
+        private void SubmitDistraction(string submittedDistraction)
+        {
+            bool isNewDistraction = true;
+
+            // Increments a distraction's count if it already exists
+            foreach (DataGridViewRow row in distractionDataGridView.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string distraction = row.Cells[0].Value?.ToString();
+                    distraction ??= "[No Name]"; // Default value
+
+                    string countStr = row.Cells[1].Value?.ToString();
+                    int count;
+                    try
+                    {
+                        count = countStr != null ? int.Parse(countStr) : 1;
+                    }
+                    catch (FormatException)
+                    {
+                        count = 1;
+                    }
+
+                    // Case-insensitivity
+                    if (distraction.ToLower() == submittedDistraction.ToLower())
+                    {
+                        row.Cells[1].Value = count + 1;
+                        isNewDistraction = false;
+                    }
+                }
+            }
+
+            if (isNewDistraction)
+            {
+                distractionDataGridView.Rows.Add(submittedDistraction, 1);
+                recentDistractions.Add(submittedDistraction);
+                UpdateDistractionComboBox();
+            }
+        }
+
+        private void UpdateDistractionComboBox()
+        {
+            distractionComboBox.Items.AddRange(recentDistractions.ToArray());
         }
     }
 }
