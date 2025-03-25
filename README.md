@@ -4,7 +4,7 @@
 
 A lightweight Windows Forms application to help you track and minimize distractions during deep work sessions. Log, analyze, and understand your focus-breaking moments to improve productivity.
 
-NOTE: **This app is still in development**
+**This app is still in development**
 
 ## Features
 
@@ -17,6 +17,11 @@ NOTE: **This app is still in development**
 
 - Windows 7 or later
 - .NET Framework 4.7.2+
+
+## Documentation
+
+- [App Requirements](Docs/Requirements.md)
+- [App Data Structure](Docs/DataStructure.md)
 
 ## Getting Started
 
