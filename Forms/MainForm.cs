@@ -30,9 +30,9 @@ namespace DistractionsTracker
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
-
             if (result == DialogResult.Yes)
             {
+                // TODO: Implement saving of session data
                 ResetInputs();
             }
         }
@@ -51,7 +51,6 @@ namespace DistractionsTracker
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
-
             if (result == DialogResult.Yes)
             {
                 ResetInputs();
