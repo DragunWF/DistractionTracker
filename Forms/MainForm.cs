@@ -135,6 +135,7 @@ namespace DistractionsTracker
             distractionComboBox.Text = "";
             distractionDataGridView.Rows.Clear();
             distractionComboBox.Items.Clear();
+            recentDistractions.Clear();
         }
 
         #endregion
