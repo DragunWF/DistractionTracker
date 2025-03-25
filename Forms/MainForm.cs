@@ -11,22 +11,50 @@ namespace DistractionsTracker
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            distractionDataGridView.AllowUserToAddRows = false;
         }
+
+        #region Button Click Events
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (recentDistractions.Count == 0)
+            {
+                MessageBox.Show("There are no distractions listed in this session to save!");
+                return;
+            }
+
             var result = MessageBox.Show(
-                "Are you sure you want to save this session? This will clear all distractions you've listed for the current session.",
-                "Confirmation",
+                "Are you sure you want to save this session? This will clear all distractions you've listed for the current session and will start a new session.",
+                "Save Session and Start New Session (Confirmation)",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
 
             if (result == DialogResult.Yes)
             {
-                distractionComboBox.Text = "";
-                distractionDataGridView.Rows.Clear();
-                distractionComboBox.Items.Clear();
+                ResetInputs();
+            }
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            if (recentDistractions.Count == 0)
+            {
+                MessageBox.Show("There is nothing to reset!");
+                return;
+            }
+
+            var result = MessageBox.Show(
+                "Are you sure you want to reset your distraction list? This will clear all distractions you've listed for the current session.",
+                "Reset Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                ResetInputs();
             }
         }
 
@@ -52,6 +80,10 @@ namespace DistractionsTracker
             SubmitDistraction(distractionInput);
             distractionComboBox.Text = "";
         }
+
+        #endregion
+
+        #region Main Form Utility Functions
 
         private void SubmitDistraction(string submittedDistraction)
         {
@@ -97,5 +129,14 @@ namespace DistractionsTracker
         {
             distractionComboBox.Items.AddRange(recentDistractions.ToArray());
         }
+
+        private void ResetInputs()
+        {
+            distractionComboBox.Text = "";
+            distractionDataGridView.Rows.Clear();
+            distractionComboBox.Items.Clear();
+        }
+
+        #endregion
     }
 }

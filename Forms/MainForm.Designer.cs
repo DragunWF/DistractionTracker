@@ -38,6 +38,7 @@
             label2 = new Label();
             viewSessionsBtn = new Button();
             viewOverallStatsBtn = new Button();
+            resetBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)distractionDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -54,16 +55,17 @@
             // 
             distractionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             distractionDataGridView.Columns.AddRange(new DataGridViewColumn[] { DistractionName, DistractionCount });
-            distractionDataGridView.Location = new Point(12, 120);
+            distractionDataGridView.Location = new Point(12, 148);
             distractionDataGridView.Name = "distractionDataGridView";
-            distractionDataGridView.Size = new Size(269, 275);
+            distractionDataGridView.RowHeadersVisible = false;
+            distractionDataGridView.Size = new Size(269, 288);
             distractionDataGridView.TabIndex = 2;
             // 
             // DistractionName
             // 
-            DistractionName.HeaderText = "Distraction";
+            DistractionName.HeaderText = "Distraction Name";
             DistractionName.Name = "DistractionName";
-            DistractionName.Width = 176;
+            DistractionName.Width = 216;
             // 
             // DistractionCount
             // 
@@ -75,7 +77,7 @@
             // 
             submitBtn.Location = new Point(12, 91);
             submitBtn.Name = "submitBtn";
-            submitBtn.Size = new Size(75, 23);
+            submitBtn.Size = new Size(183, 23);
             submitBtn.TabIndex = 3;
             submitBtn.Text = "Submit";
             submitBtn.UseVisualStyleBackColor = true;
@@ -91,9 +93,9 @@
             // 
             // saveBtn
             // 
-            saveBtn.Location = new Point(93, 91);
+            saveBtn.Location = new Point(12, 119);
             saveBtn.Name = "saveBtn";
-            saveBtn.Size = new Size(188, 23);
+            saveBtn.Size = new Size(269, 23);
             saveBtn.TabIndex = 5;
             saveBtn.Text = "Save and Start New Session";
             saveBtn.UseVisualStyleBackColor = true;
@@ -111,28 +113,39 @@
             // 
             // viewSessionsBtn
             // 
-            viewSessionsBtn.Location = new Point(12, 401);
+            viewSessionsBtn.Location = new Point(12, 442);
             viewSessionsBtn.Name = "viewSessionsBtn";
             viewSessionsBtn.Size = new Size(108, 23);
             viewSessionsBtn.TabIndex = 7;
             viewSessionsBtn.Text = "View Sessions";
             viewSessionsBtn.UseVisualStyleBackColor = true;
-            viewSessionsBtn.Click += this.viewSessionsBtn_Click;
+            viewSessionsBtn.Click += viewSessionsBtn_Click;
             // 
             // viewOverallStatsBtn
             // 
-            viewOverallStatsBtn.Location = new Point(126, 401);
+            viewOverallStatsBtn.Location = new Point(126, 442);
             viewOverallStatsBtn.Name = "viewOverallStatsBtn";
             viewOverallStatsBtn.Size = new Size(155, 23);
             viewOverallStatsBtn.TabIndex = 8;
             viewOverallStatsBtn.Text = "View Overall Stats";
             viewOverallStatsBtn.UseVisualStyleBackColor = true;
             // 
+            // resetBtn
+            // 
+            resetBtn.Location = new Point(201, 91);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(80, 23);
+            resetBtn.TabIndex = 9;
+            resetBtn.Text = "Reset";
+            resetBtn.UseVisualStyleBackColor = true;
+            resetBtn.Click += resetBtn_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(300, 446);
+            ClientSize = new Size(295, 477);
+            Controls.Add(resetBtn);
             Controls.Add(viewOverallStatsBtn);
             Controls.Add(viewSessionsBtn);
             Controls.Add(label2);
@@ -152,12 +165,13 @@
         private Label label1;
         private DataGridView distractionDataGridView;
         private Button submitBtn;
-        private DataGridViewTextBoxColumn DistractionName;
-        private DataGridViewTextBoxColumn DistractionCount;
         private ComboBox distractionComboBox;
         private Button saveBtn;
         private Label label2;
         private Button viewSessionsBtn;
         private Button viewOverallStatsBtn;
+        private Button resetBtn;
+        private DataGridViewTextBoxColumn DistractionName;
+        private DataGridViewTextBoxColumn DistractionCount;
     }
 }
