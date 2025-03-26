@@ -4,7 +4,7 @@ namespace DistractionsTracker
 {
     public partial class MainForm : Form
     {
-        private List<string> recentDistractions = new();
+        private HashSet<string> recentDistractions = new();
 
         public MainForm()
         {
@@ -112,6 +112,7 @@ namespace DistractionsTracker
                     {
                         row.Cells[1].Value = count + 1;
                         isNewDistraction = false;
+                        break;
                     }
                 }
             }
