@@ -47,7 +47,7 @@ namespace DistractionsTracker
         {
             if (_recentDistractions.Count == 0)
             {
-                MessageBox.Show("There are no distractions listed in this session to save!");
+                MessageBox.Show("There are no distractions listed in this session to save!", "Alert");
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace DistractionsTracker
         {
             if (_recentDistractions.Count == 0)
             {
-                MessageBox.Show("There is nothing to reset!");
+                MessageBox.Show("There is nothing to reset!", "Alert");
                 return;
             }
 
@@ -102,7 +102,7 @@ namespace DistractionsTracker
             string distractionInput = distractionComboBox.Text.Trim();
             if (string.IsNullOrWhiteSpace(distractionInput))
             {
-                MessageBox.Show("Make sure to type something in the distraction combo box!");
+                MessageBox.Show("Make sure to type something in the distraction combo box!", "Alert");
                 return;
             }
 
