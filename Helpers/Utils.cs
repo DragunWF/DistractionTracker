@@ -24,5 +24,10 @@ namespace DistractionsTracker.Helpers
             }
             return Convert.ToInt32(sb.ToString());
         }
+
+        public static string GetCurrentDateTimeString()
+        {
+            return DateTime.Now.ToString("MMMM d, yyyy - h:mm tt");
+        }
     }
 }
