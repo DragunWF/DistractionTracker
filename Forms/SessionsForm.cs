@@ -16,7 +16,10 @@ namespace DistractionsTracker.Forms
         public SessionsForm()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
+            sessionDataGridView.ReadOnly = true;
             this.FormClosed += Session_FormClosed;
         }
 

@@ -7,24 +7,21 @@ namespace DistractionsTracker
     public partial class MainForm : Form
     {
         private HashSet<string> _recentDistractions = new();
+        private string _currentSessionDate;
 
         public MainForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            distractionDataGridView.AllowUserToAddRows = false;
 
-            this.FormClosed += Main_FormClosed;
+            distractionDataGridView.AllowUserToAddRows = false;
             distractionDataGridView.CellEndEdit += distractionDataGridView_CellEndEdit;
+
+            _currentSessionDate = Utils.GetCurrentDateTimeString();
         }
 
         #region Miscellenous Events
-
-        private void Main_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void distractionDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -62,6 +59,7 @@ namespace DistractionsTracker
             if (result == DialogResult.Yes)
             {
                 // TODO: Implement saving of session data
+                _currentSessionDate = Utils.GetCurrentDateTimeString();
                 ResetInputs();
             }
         }
