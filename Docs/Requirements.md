@@ -12,6 +12,7 @@ The Distraction Tracker is a Windows Forms application designed to help users mo
 - Users MUST be able to add a new distraction by:
   - Typing the distraction description
   - Clicking an "Add Distraction" button
+  - By pressing the ENTER key
 
 ### 2.2 Distraction List Management
 
