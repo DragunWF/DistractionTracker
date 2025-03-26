@@ -1,4 +1,5 @@
 ﻿using DistractionsTracker.Helpers;
+using DistractionsTracker.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,21 @@ namespace DistractionsTracker.Forms
 
             sessionDataGridView.ReadOnly = true;
             this.FormClosed += Session_FormClosed;
+
+            PopulateDataGridView();
+        }
+
+        private void PopulateDataGridView()
+        {
+            List<Session> sessions = DataManager.GetSessions();
+            foreach (Session session in sessions)
+            {
+                sessionDataGridView.Rows.Add(
+                    session.Date,
+                    session.DistractionTypes,
+                    session.TotalDistractionCount
+                );
+            }
         }
 
         #region Miscellenous Events
@@ -28,6 +44,20 @@ namespace DistractionsTracker.Forms
         private void Session_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormManager.CloseSessionsForm();
+        }
+
+        #endregion
+
+        #region Button Click Events
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void refeshBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

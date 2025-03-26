@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             sessionDataGridView = new DataGridView();
-            label1 = new Label();
             SessionDate = new DataGridViewTextBoxColumn();
             TotalDistractionCount = new DataGridViewTextBoxColumn();
             DistractionTypes = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            resetBtn = new Button();
+            refeshBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -45,16 +47,6 @@
             sessionDataGridView.RowHeadersVisible = false;
             sessionDataGridView.Size = new Size(393, 291);
             sessionDataGridView.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(259, 30);
-            label1.TabIndex = 1;
-            label1.Text = "Deep Work Sessions";
             // 
             // SessionDate
             // 
@@ -72,11 +64,43 @@
             DistractionTypes.HeaderText = "Distraction Types";
             DistractionTypes.Name = "DistractionTypes";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(259, 30);
+            label1.TabIndex = 1;
+            label1.Text = "Deep Work Sessions";
+            // 
+            // resetBtn
+            // 
+            resetBtn.Location = new Point(138, 350);
+            resetBtn.Name = "resetBtn";
+            resetBtn.Size = new Size(133, 23);
+            resetBtn.TabIndex = 2;
+            resetBtn.Text = "Reset Data";
+            resetBtn.UseVisualStyleBackColor = true;
+            resetBtn.Click += resetBtn_Click;
+            // 
+            // refeshBtn
+            // 
+            refeshBtn.Location = new Point(12, 350);
+            refeshBtn.Name = "refeshBtn";
+            refeshBtn.Size = new Size(120, 23);
+            refeshBtn.TabIndex = 3;
+            refeshBtn.Text = "Refresh Data";
+            refeshBtn.UseVisualStyleBackColor = true;
+            refeshBtn.Click += refeshBtn_Click;
+            // 
             // SessionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 356);
+            ClientSize = new Size(423, 386);
+            Controls.Add(refeshBtn);
+            Controls.Add(resetBtn);
             Controls.Add(label1);
             Controls.Add(sessionDataGridView);
             Name = "SessionsForm";
@@ -93,5 +117,7 @@
         private DataGridViewTextBoxColumn SessionDate;
         private DataGridViewTextBoxColumn TotalDistractionCount;
         private DataGridViewTextBoxColumn DistractionTypes;
+        private Button resetBtn;
+        private Button refeshBtn;
     }
 }

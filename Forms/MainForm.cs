@@ -1,4 +1,5 @@
 using DistractionsTracker.Helpers;
+using DistractionsTracker.Models;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace DistractionsTracker
 
         private void distractionDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            // This event fires after the user finishes editing a cell
+            // This deletes a row if the user sets the count to zero or a negative value
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 object newValue = distractionDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
@@ -58,9 +59,11 @@ namespace DistractionsTracker
             );
             if (result == DialogResult.Yes)
             {
-                // TODO: Implement saving of session data
-                _currentSessionDate = Utils.GetCurrentDateTimeString();
+                Session session = new Session(_currentSessionDate, GetDistractionTypes(), GetTotalDistractionCount());
+                DataManager.AddSession(session);
+
                 ResetInputs();
+                _currentSessionDate = Utils.GetCurrentDateTimeString();
             }
         }
 
@@ -163,6 +166,31 @@ namespace DistractionsTracker
             distractionDataGridView.Rows.Clear();
             distractionComboBox.Items.Clear();
             _recentDistractions.Clear();
+        }
+
+        private int GetTotalDistractionCount()
+        {
+            int totalCount = 0;
+            foreach (DataGridViewRow row in distractionDataGridView.Rows)
+            {
+                string countStr = row.Cells[1].Value?.ToString();
+                int count;
+                try
+                {
+                    count = int.Parse(countStr);
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                totalCount += count;
+            }
+            return totalCount;
+        }
+
+        private int GetDistractionTypes()
+        {
+            return distractionDataGridView.Rows.Count;
         }
 
         #endregion
