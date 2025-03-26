@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DistractionsTracker.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace DistractionsTracker.Forms
         public OverallStatsForm()
         {
             InitializeComponent();
+
+            this.FormClosed += OverallStats_FormClosed;
         }
+
+        #region Miscellenous Events
+
+        private void OverallStats_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseOverallStatsForm();
+        }
+
+        #endregion
     }
 }

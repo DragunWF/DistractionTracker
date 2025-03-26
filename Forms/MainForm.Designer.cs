@@ -129,6 +129,7 @@
             viewOverallStatsBtn.TabIndex = 8;
             viewOverallStatsBtn.Text = "View Overall Stats";
             viewOverallStatsBtn.UseVisualStyleBackColor = true;
+            viewOverallStatsBtn.Click += viewOverallStatsBtn_Click;
             // 
             // resetBtn
             // 

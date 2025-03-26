@@ -1,3 +1,4 @@
+using DistractionsTracker.Helpers;
 using System.Runtime.CompilerServices;
 
 namespace DistractionsTracker
@@ -12,7 +13,18 @@ namespace DistractionsTracker
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             distractionDataGridView.AllowUserToAddRows = false;
+
+            this.FormClosed += Main_FormClosed;
         }
+
+        #region Miscellenous Events
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #endregion
 
         #region Button Click Events
 
@@ -59,17 +71,17 @@ namespace DistractionsTracker
 
         private void viewSessionsBtn_Click(object sender, EventArgs e)
         {
-
+            FormManager.OpenSessionsForm();
         }
 
         private void viewOverallStatsBtn_Click(object sender, EventArgs e)
         {
-
+            FormManager.OpenOverallStatsForm();
         }
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            string distractionInput = distractionComboBox.Text;
+            string distractionInput = distractionComboBox.Text.Trim();
             if (string.IsNullOrWhiteSpace(distractionInput))
             {
                 MessageBox.Show("Make sure to type something in the distraction combo box!");

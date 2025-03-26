@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DistractionsTracker.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace DistractionsTracker.Forms
         public SessionsForm()
         {
             InitializeComponent();
+
+            this.FormClosed += Session_FormClosed;
         }
+
+        #region Miscellenous Events
+
+        private void Session_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseSessionsForm();
+        }
+
+        #endregion
     }
 }
