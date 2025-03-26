@@ -18,6 +18,7 @@ namespace DistractionsTracker
 
             distractionDataGridView.AllowUserToAddRows = false;
             distractionDataGridView.CellEndEdit += distractionDataGridView_CellEndEdit;
+            distractionComboBox.KeyDown += distractionComboBox_KeyDown;
 
             _currentSessionDate = Utils.GetCurrentDateTimeString();
         }
@@ -36,6 +37,15 @@ namespace DistractionsTracker
                 {
                     distractionDataGridView.Rows.RemoveAt(e.RowIndex);
                 }
+            }
+        }
+
+        private void distractionComboBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                SubmitDistraction();
             }
         }
 
@@ -104,6 +114,15 @@ namespace DistractionsTracker
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
+            SubmitDistraction();
+        }
+
+        #endregion
+
+        #region Main Form Utility Functions
+
+        private void SubmitDistraction()
+        {
             string distractionInput = distractionComboBox.Text.Trim();
             if (string.IsNullOrWhiteSpace(distractionInput))
             {
@@ -111,15 +130,11 @@ namespace DistractionsTracker
                 return;
             }
 
-            SubmitDistraction(distractionInput);
+            AddDistractionToList(distractionInput);
             distractionComboBox.Text = "";
         }
 
-        #endregion
-
-        #region Main Form Utility Functions
-
-        private void SubmitDistraction(string submittedDistraction)
+        private void AddDistractionToList(string submittedDistraction)
         {
             bool isNewDistraction = true;
 
