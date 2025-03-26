@@ -25,5 +25,10 @@ namespace DistractionsTracker.Helpers
             currentSessions.Add(session);
             FileManager.WriteListToJsonFile<Session>(currentSessions, _dataFilePath);
         }
+
+        public static void ResetData()
+        {
+            FileManager.WriteListToJsonFile<Session>(new List<Session>(), _dataFilePath);
+        }
     }
 }

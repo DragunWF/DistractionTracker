@@ -55,7 +55,18 @@ namespace DistractionsTracker.Forms
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
-
+            var result = MessageBox.Show(
+                "Are you sure you want to delete all data related to your deep work sessions? This action cannot be undone!",
+                "Sessions Data Reset Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+            if (result == DialogResult.Yes)
+            {
+                DataManager.ResetData();
+                PopulateDataGridView();
+                MessageBox.Show("Sessions data has been successfully reset!", "Operation Complete");
+            }
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
