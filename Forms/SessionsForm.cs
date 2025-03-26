@@ -21,6 +21,7 @@ namespace DistractionsTracker.Forms
             MaximizeBox = false;
 
             sessionDataGridView.ReadOnly = true;
+            sessionDataGridView.AllowUserToAddRows = false;
             this.FormClosed += Session_FormClosed;
 
             PopulateDataGridView();
@@ -28,6 +29,8 @@ namespace DistractionsTracker.Forms
 
         private void PopulateDataGridView()
         {
+            sessionDataGridView.Rows.Clear();
+
             List<Session> sessions = DataManager.GetSessions();
             foreach (Session session in sessions)
             {
@@ -55,9 +58,9 @@ namespace DistractionsTracker.Forms
 
         }
 
-        private void refeshBtn_Click(object sender, EventArgs e)
+        private void refreshBtn_Click(object sender, EventArgs e)
         {
-
+            PopulateDataGridView();
         }
 
         #endregion

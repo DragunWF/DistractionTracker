@@ -34,7 +34,7 @@
             DistractionTypes = new DataGridViewTextBoxColumn();
             label1 = new Label();
             resetBtn = new Button();
-            refeshBtn = new Button();
+            refreshBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +68,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(82, 9);
             label1.Name = "label1";
             label1.Size = new Size(259, 30);
             label1.TabIndex = 1;
@@ -76,30 +76,30 @@
             // 
             // resetBtn
             // 
-            resetBtn.Location = new Point(138, 350);
+            resetBtn.Location = new Point(272, 351);
             resetBtn.Name = "resetBtn";
-            resetBtn.Size = new Size(133, 23);
+            resetBtn.Size = new Size(130, 23);
             resetBtn.TabIndex = 2;
             resetBtn.Text = "Reset Data";
             resetBtn.UseVisualStyleBackColor = true;
             resetBtn.Click += resetBtn_Click;
             // 
-            // refeshBtn
+            // refreshBtn
             // 
-            refeshBtn.Location = new Point(12, 350);
-            refeshBtn.Name = "refeshBtn";
-            refeshBtn.Size = new Size(120, 23);
-            refeshBtn.TabIndex = 3;
-            refeshBtn.Text = "Refresh Data";
-            refeshBtn.UseVisualStyleBackColor = true;
-            refeshBtn.Click += refeshBtn_Click;
+            refreshBtn.Location = new Point(12, 350);
+            refreshBtn.Name = "refreshBtn";
+            refreshBtn.Size = new Size(130, 23);
+            refreshBtn.TabIndex = 3;
+            refreshBtn.Text = "Refresh Data";
+            refreshBtn.UseVisualStyleBackColor = true;
+            refreshBtn.Click += refreshBtn_Click;
             // 
             // SessionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(423, 386);
-            Controls.Add(refeshBtn);
+            ClientSize = new Size(421, 386);
+            Controls.Add(refreshBtn);
             Controls.Add(resetBtn);
             Controls.Add(label1);
             Controls.Add(sessionDataGridView);
@@ -118,6 +118,6 @@
         private DataGridViewTextBoxColumn TotalDistractionCount;
         private DataGridViewTextBoxColumn DistractionTypes;
         private Button resetBtn;
-        private Button refeshBtn;
+        private Button refreshBtn;
     }
 }
