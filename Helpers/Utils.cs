@@ -25,6 +25,20 @@ namespace DistractionsTracker.Helpers
             return Convert.ToInt32(sb.ToString());
         }
 
+        public static int GetCountCellValue(string countCell)
+        {
+            int count;
+            try
+            {
+                count = countCell != null ? int.Parse(countCell) : 1;
+            }
+            catch (FormatException)
+            {
+                count = 1;
+            }
+            return count;
+        }
+
         public static string GetCurrentDateTimeString()
         {
             return DateTime.Now.ToString("MMMM d, yyyy - h:mm tt");

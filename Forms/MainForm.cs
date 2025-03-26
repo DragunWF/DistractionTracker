@@ -59,7 +59,12 @@ namespace DistractionsTracker
             );
             if (result == DialogResult.Yes)
             {
-                Session session = new Session(_currentSessionDate, GetDistractionTypes(), GetTotalDistractionCount());
+                Session session = new Session(
+                    _currentSessionDate, 
+                    GetDistractionTypes(), 
+                    GetTotalDistractionCount(),
+                    GetDistractions()
+                );
                 DataManager.AddSession(session);
 
                 ResetInputs();
@@ -125,17 +130,7 @@ namespace DistractionsTracker
                 {
                     string distraction = row.Cells[0].Value?.ToString();
                     distraction ??= "[No Name]"; // Default value
-
-                    string countStr = row.Cells[1].Value?.ToString();
-                    int count;
-                    try
-                    {
-                        count = countStr != null ? int.Parse(countStr) : 1;
-                    }
-                    catch (FormatException)
-                    {
-                        count = 1;
-                    }
+                    int count = Utils.GetCountCellValue(row.Cells[1].Value?.ToString());
 
                     // Case-insensitivity
                     if (distraction.ToLower() == submittedDistraction.ToLower())
@@ -166,6 +161,20 @@ namespace DistractionsTracker
             distractionDataGridView.Rows.Clear();
             distractionComboBox.Items.Clear();
             _recentDistractions.Clear();
+        }
+
+        private List<Distraction> GetDistractions()
+        {
+            List<Distraction> distractions = new();
+            foreach (DataGridViewRow row in distractionDataGridView.Rows)
+            {
+                string distraction = row.Cells[0].Value?.ToString();
+                distraction ??= "[No Name]"; // Default value
+
+                int count = Utils.GetCountCellValue(row.Cells[1].Value?.ToString());
+                distractions.Add(new Distraction(distraction, count));
+            }
+            return distractions;
         }
 
         private int GetTotalDistractionCount()
