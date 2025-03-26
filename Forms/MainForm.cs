@@ -1,11 +1,12 @@
 using DistractionsTracker.Helpers;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 
 namespace DistractionsTracker
 {
     public partial class MainForm : Form
     {
-        private HashSet<string> recentDistractions = new();
+        private HashSet<string> _recentDistractions = new();
 
         public MainForm()
         {
@@ -15,6 +16,7 @@ namespace DistractionsTracker
             distractionDataGridView.AllowUserToAddRows = false;
 
             this.FormClosed += Main_FormClosed;
+            distractionDataGridView.CellEndEdit += distractionDataGridView_CellEndEdit;
         }
 
         #region Miscellenous Events
@@ -24,13 +26,28 @@ namespace DistractionsTracker
             Application.Exit();
         }
 
+        private void distractionDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            // This event fires after the user finishes editing a cell
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                object newValue = distractionDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+                int count = Utils.ConvertCountCellToNumber((string)newValue);
+                if (count <= 0)
+                {
+                    distractionDataGridView.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
+
         #endregion
 
         #region Button Click Events
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (recentDistractions.Count == 0)
+            if (_recentDistractions.Count == 0)
             {
                 MessageBox.Show("There are no distractions listed in this session to save!");
                 return;
@@ -51,7 +68,7 @@ namespace DistractionsTracker
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
-            if (recentDistractions.Count == 0)
+            if (_recentDistractions.Count == 0)
             {
                 MessageBox.Show("There is nothing to reset!");
                 return;
@@ -132,14 +149,14 @@ namespace DistractionsTracker
             if (isNewDistraction)
             {
                 distractionDataGridView.Rows.Add(submittedDistraction, 1);
-                recentDistractions.Add(submittedDistraction);
+                _recentDistractions.Add(submittedDistraction);
                 UpdateDistractionComboBox();
             }
         }
 
         private void UpdateDistractionComboBox()
         {
-            distractionComboBox.Items.AddRange(recentDistractions.ToArray());
+            distractionComboBox.Items.AddRange(_recentDistractions.ToArray());
         }
 
         private void ResetInputs()
@@ -147,7 +164,7 @@ namespace DistractionsTracker
             distractionComboBox.Text = "";
             distractionDataGridView.Rows.Clear();
             distractionComboBox.Items.Clear();
-            recentDistractions.Clear();
+            _recentDistractions.Clear();
         }
 
         #endregion
