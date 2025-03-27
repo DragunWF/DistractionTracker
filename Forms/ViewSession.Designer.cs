@@ -30,12 +30,12 @@
         {
             label2 = new Label();
             distractionsDataGridView = new DataGridView();
+            Distraction = new DataGridViewTextBoxColumn();
+            Count = new DataGridViewTextBoxColumn();
             label1 = new Label();
             sessionIdLabel = new Label();
             label3 = new Label();
             totalDistractionCountLabel = new Label();
-            Distraction = new DataGridViewTextBoxColumn();
-            Count = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)distractionsDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -59,6 +59,17 @@
             distractionsDataGridView.Size = new Size(280, 332);
             distractionsDataGridView.TabIndex = 8;
             // 
+            // Distraction
+            // 
+            Distraction.HeaderText = "Distraction";
+            Distraction.Name = "Distraction";
+            Distraction.Width = 177;
+            // 
+            // Count
+            // 
+            Count.HeaderText = "Count";
+            Count.Name = "Count";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -71,9 +82,10 @@
             // sessionIdLabel
             // 
             sessionIdLabel.AutoSize = true;
+            sessionIdLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             sessionIdLabel.Location = new Point(81, 41);
             sessionIdLabel.Name = "sessionIdLabel";
-            sessionIdLabel.Size = new Size(82, 15);
+            sessionIdLabel.Size = new Size(87, 15);
             sessionIdLabel.TabIndex = 10;
             sessionIdLabel.Text = "[ID of Session]";
             // 
@@ -89,22 +101,12 @@
             // totalDistractionCountLabel
             // 
             totalDistractionCountLabel.AutoSize = true;
+            totalDistractionCountLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             totalDistractionCountLabel.Location = new Point(149, 414);
             totalDistractionCountLabel.Name = "totalDistractionCountLabel";
-            totalDistractionCountLabel.Size = new Size(138, 15);
+            totalDistractionCountLabel.Size = new Size(145, 15);
             totalDistractionCountLabel.TabIndex = 12;
             totalDistractionCountLabel.Text = "[Number of Distractions]";
-            // 
-            // Distraction
-            // 
-            Distraction.HeaderText = "Distraction";
-            Distraction.Name = "Distraction";
-            Distraction.Width = 177;
-            // 
-            // Count
-            // 
-            Count.HeaderText = "Count";
-            Count.Name = "Count";
             // 
             // ViewSession
             // 
