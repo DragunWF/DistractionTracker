@@ -9,7 +9,7 @@ namespace DistractionsTracker.Models
 {
     internal class Session
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public int DistractionTypes { get; set; }

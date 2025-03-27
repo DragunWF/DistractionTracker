@@ -117,7 +117,7 @@
             ViewBtn.Text = "View More";
             ViewBtn.UseColumnTextForButtonValue = true;
             // 
-            // SessionsForm
+            // ViewAllSessionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -126,7 +126,7 @@
             Controls.Add(resetBtn);
             Controls.Add(label1);
             Controls.Add(sessionDataGridView);
-            Name = "SessionsForm";
+            Name = "ViewAllSessionsForm";
             Text = "Deep Work Sessions Form";
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).EndInit();
             ResumeLayout(false);

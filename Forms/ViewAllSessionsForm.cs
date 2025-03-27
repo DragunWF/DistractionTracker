@@ -22,7 +22,7 @@ namespace DistractionsTracker.Forms
 
             sessionDataGridView.ReadOnly = true;
             sessionDataGridView.AllowUserToAddRows = false;
-            sessionDataGridView.CellClick += sessionDataGridView_CellClick;
+            sessionDataGridView.CellContentClick += sessionDataGridView_CellContentClick;
             this.FormClosed += Session_FormClosed;
 
             PopulateDataGridView();
@@ -52,20 +52,19 @@ namespace DistractionsTracker.Forms
             FormManager.CloseSessionsForm();
         }
 
-        private void sessionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void sessionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Check if a valid row is clicked (not header row)
-            if (e.RowIndex >= 0)
+            const int buttonColumnIndex = 5;
+            if (e.ColumnIndex == buttonColumnIndex && e.RowIndex >= 0)
             {
-                DataGridViewRow selectedRow = sessionDataGridView.Rows[e.RowIndex];
                 try
                 {
-                    int sessionId = int.Parse(selectedRow.Cells[0].Value?.ToString());
+                    int sessionId = int.Parse(sessionDataGridView.Rows[e.RowIndex].Cells[0].Value?.ToString());
                     FormManager.OpenSessionForm(sessionId);
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show($"An unexpected error has occured! {err.Message}", "Error");
+                    MessageBox.Show($"An unexpected error has occurred! {err.Message}", "Error");
                 }
             }
         }
