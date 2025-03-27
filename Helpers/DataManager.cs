@@ -30,5 +30,19 @@ namespace DistractionsTracker.Helpers
         {
             FileManager.WriteListToJsonFile<Session>(new List<Session>(), _dataFilePath);
         }
+
+        public static int GenerateSessionId()
+        {
+            List<Session> currentSessions = FileManager.ReadListFromJsonFile<Session>(_dataFilePath);
+            int maxId = 0;
+            foreach (Session session in currentSessions)
+            {
+                if (session.Id > maxId)
+                {
+                    maxId = session.Id;
+                }
+            }
+            return maxId + 1;
+        }
     }
 }

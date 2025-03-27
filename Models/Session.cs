@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DistractionsTracker.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace DistractionsTracker.Models
 {
     internal class Session
     {
+        public int Id { get; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public int DistractionTypes { get; set; }
@@ -18,6 +20,7 @@ namespace DistractionsTracker.Models
 
         public Session(string startDate, string endDate, int distractionTypes, int totalDistractionCount, List<Distraction> distractions)
         {
+            Id = DataManager.GenerateSessionId();
             StartDate = startDate;
             EndDate = endDate;
             DistractionTypes = distractionTypes;
