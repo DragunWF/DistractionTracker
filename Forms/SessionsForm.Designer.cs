@@ -29,46 +29,31 @@
         private void InitializeComponent()
         {
             sessionDataGridView = new DataGridView();
-            SessionDate = new DataGridViewTextBoxColumn();
-            TotalDistractionCount = new DataGridViewTextBoxColumn();
-            DistractionTypes = new DataGridViewTextBoxColumn();
             label1 = new Label();
             resetBtn = new Button();
             refreshBtn = new Button();
+            StartDate = new DataGridViewTextBoxColumn();
+            EndDate = new DataGridViewTextBoxColumn();
+            TotalDistractionCount = new DataGridViewTextBoxColumn();
+            DistractionTypes = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).BeginInit();
             SuspendLayout();
             // 
             // sessionDataGridView
             // 
             sessionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            sessionDataGridView.Columns.AddRange(new DataGridViewColumn[] { SessionDate, TotalDistractionCount, DistractionTypes });
+            sessionDataGridView.Columns.AddRange(new DataGridViewColumn[] { StartDate, EndDate, TotalDistractionCount, DistractionTypes });
             sessionDataGridView.Location = new Point(12, 53);
             sessionDataGridView.Name = "sessionDataGridView";
             sessionDataGridView.RowHeadersVisible = false;
-            sessionDataGridView.Size = new Size(393, 291);
+            sessionDataGridView.Size = new Size(503, 291);
             sessionDataGridView.TabIndex = 0;
-            // 
-            // SessionDate
-            // 
-            SessionDate.HeaderText = "Session Date";
-            SessionDate.Name = "SessionDate";
-            SessionDate.Width = 190;
-            // 
-            // TotalDistractionCount
-            // 
-            TotalDistractionCount.HeaderText = "Total Distraction Count";
-            TotalDistractionCount.Name = "TotalDistractionCount";
-            // 
-            // DistractionTypes
-            // 
-            DistractionTypes.HeaderText = "Distraction Types";
-            DistractionTypes.Name = "DistractionTypes";
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Showcard Gothic", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(82, 9);
+            label1.Location = new Point(136, 9);
             label1.Name = "label1";
             label1.Size = new Size(259, 30);
             label1.TabIndex = 1;
@@ -76,7 +61,7 @@
             // 
             // resetBtn
             // 
-            resetBtn.Location = new Point(272, 351);
+            resetBtn.Location = new Point(385, 350);
             resetBtn.Name = "resetBtn";
             resetBtn.Size = new Size(130, 23);
             resetBtn.TabIndex = 2;
@@ -94,17 +79,39 @@
             refreshBtn.UseVisualStyleBackColor = true;
             refreshBtn.Click += refreshBtn_Click;
             // 
+            // StartDate
+            // 
+            StartDate.HeaderText = "Start Date";
+            StartDate.Name = "StartDate";
+            StartDate.Width = 150;
+            // 
+            // EndDate
+            // 
+            EndDate.HeaderText = "EndDate";
+            EndDate.Name = "EndDate";
+            EndDate.Width = 150;
+            // 
+            // TotalDistractionCount
+            // 
+            TotalDistractionCount.HeaderText = "Total Distraction Count";
+            TotalDistractionCount.Name = "TotalDistractionCount";
+            // 
+            // DistractionTypes
+            // 
+            DistractionTypes.HeaderText = "Distraction Types";
+            DistractionTypes.Name = "DistractionTypes";
+            // 
             // SessionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(421, 386);
+            ClientSize = new Size(532, 386);
             Controls.Add(refreshBtn);
             Controls.Add(resetBtn);
             Controls.Add(label1);
             Controls.Add(sessionDataGridView);
             Name = "SessionsForm";
-            Text = "SessionsForm";
+            Text = "Deep Work Sessions Form";
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -114,10 +121,11 @@
 
         private DataGridView sessionDataGridView;
         private Label label1;
-        private DataGridViewTextBoxColumn SessionDate;
-        private DataGridViewTextBoxColumn TotalDistractionCount;
-        private DataGridViewTextBoxColumn DistractionTypes;
         private Button resetBtn;
         private Button refreshBtn;
+        private DataGridViewTextBoxColumn StartDate;
+        private DataGridViewTextBoxColumn EndDate;
+        private DataGridViewTextBoxColumn TotalDistractionCount;
+        private DataGridViewTextBoxColumn DistractionTypes;
     }
 }

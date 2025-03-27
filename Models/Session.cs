@@ -8,16 +8,18 @@ namespace DistractionsTracker.Models
 {
     internal class Session
     {
-        public string Date { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public int DistractionTypes { get; set; }
         public int TotalDistractionCount { get; set; }
         public List<Distraction> Distractions { get; set; }
 
         public Session() { }
 
-        public Session(string date, int distractionTypes, int totalDistractionCount, List<Distraction> distractions)
+        public Session(string startDate, string endDate, int distractionTypes, int totalDistractionCount, List<Distraction> distractions)
         {
-            Date = date;
+            StartDate = startDate;
+            EndDate = endDate;
             DistractionTypes = distractionTypes;
             TotalDistractionCount = totalDistractionCount;
             Distractions = distractions;

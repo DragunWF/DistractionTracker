@@ -8,7 +8,7 @@ namespace DistractionsTracker
     public partial class MainForm : Form
     {
         private HashSet<string> _recentDistractions = new();
-        private string _currentSessionDate;
+        private string _startSessionDate;
 
         public MainForm()
         {
@@ -20,7 +20,7 @@ namespace DistractionsTracker
             distractionDataGridView.CellEndEdit += distractionDataGridView_CellEndEdit;
             distractionComboBox.KeyDown += distractionComboBox_KeyDown;
 
-            _currentSessionDate = Utils.GetCurrentDateTimeString();
+            _startSessionDate = Utils.GetCurrentDateTimeString();
         }
 
         #region Miscellenous Events
@@ -70,15 +70,16 @@ namespace DistractionsTracker
             if (result == DialogResult.Yes)
             {
                 Session session = new Session(
-                    _currentSessionDate, 
-                    GetDistractionTypes(), 
+                    _startSessionDate,
+                    Utils.GetCurrentDateTimeString(),
+                    GetDistractionTypes(),
                     GetTotalDistractionCount(),
                     GetDistractions()
                 );
                 DataManager.AddSession(session);
 
                 ResetInputs();
-                _currentSessionDate = Utils.GetCurrentDateTimeString();
+                _startSessionDate = Utils.GetCurrentDateTimeString();
             }
         }
 

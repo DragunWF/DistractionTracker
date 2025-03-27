@@ -35,7 +35,8 @@ namespace DistractionsTracker.Forms
             foreach (Session session in sessions)
             {
                 sessionDataGridView.Rows.Add(
-                    session.Date,
+                    session.StartDate,
+                    session.EndDate,
                     session.DistractionTypes,
                     session.TotalDistractionCount
                 );
