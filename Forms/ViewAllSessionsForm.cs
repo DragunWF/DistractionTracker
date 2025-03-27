@@ -39,8 +39,8 @@ namespace DistractionsTracker.Forms
                     session.Id,
                     session.StartDate,
                     session.EndDate,
-                    session.DistractionTypes,
-                    session.TotalDistractionCount
+                    session.TotalDistractionCount,
+                    session.DistractionTypes
                 );
             }
         }
