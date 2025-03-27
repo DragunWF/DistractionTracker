@@ -14,27 +14,27 @@ namespace DistractionsTracker.Forms
 {
     public partial class ViewSession : Form
     {
-        private int sessionId;
-        private Session session;
+        private readonly int _sessionId;
+        private readonly Session _session;
 
         public ViewSession(int sessionId)
         {
             InitializeComponent();
-            this.sessionId = sessionId;
+            this._sessionId = sessionId;
 
             distractionsDataGridView.AllowUserToAddRows = false;
             distractionsDataGridView.ReadOnly = true;
 
-            session = DataManager.GetSession(sessionId);
+            _session = DataManager.GetSession(sessionId);
             LoadData();
         }
 
         private void LoadData()
         {
-            sessionIdLabel.Text = sessionId.ToString();
-            totalDistractionCountLabel.Text = session.TotalDistractionCount.ToString();
+            sessionIdLabel.Text = _sessionId.ToString();
+            totalDistractionCountLabel.Text = _session.TotalDistractionCount.ToString();
 
-            List<Distraction> distractions = session.Distractions;
+            List<Distraction> distractions = _session.Distractions;
             foreach (Distraction distraction in distractions)
             {
                 distractionsDataGridView.Rows.Add(
