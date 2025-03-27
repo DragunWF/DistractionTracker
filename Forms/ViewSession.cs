@@ -24,6 +24,7 @@ namespace DistractionsTracker.Forms
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            this.FormClosed += ViewSession_FormClosed;
 
             distractionsDataGridView.AllowUserToAddRows = false;
             distractionsDataGridView.ReadOnly = true;
@@ -31,6 +32,17 @@ namespace DistractionsTracker.Forms
             _session = DataManager.GetSession(sessionId);
             LoadData();
         }
+
+        #region Events
+
+        private void ViewSession_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormManager.CloseSessionForm(_sessionId);
+        }
+
+        #endregion
+
+        #region Utility Methods
 
         private void LoadData()
         {
@@ -45,6 +57,8 @@ namespace DistractionsTracker.Forms
                     distraction.DistractionCount
                 );
             }
-        }   
+        }
+
+        #endregion
     }
 }

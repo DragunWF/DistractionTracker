@@ -9,23 +9,24 @@ namespace DistractionsTracker.Helpers
 {
     internal class FormManager
     {
-        private static bool _overallStatsFormInitialized = false;
+        private static HashSet<int> _initializedSessionForms = new();
+        private static bool _dataSummaryFormInitialized = false;
         private static bool _sessionsFormInitialized = false;
 
         #region Open Form Methods
 
         public static void OpenDataSummaryForm()
         {
-            if (_overallStatsFormInitialized)
+            if (_dataSummaryFormInitialized)
             {
                 return;
             }
 
             new OverallStatsForm().Show();
-            _overallStatsFormInitialized = true;
+            _dataSummaryFormInitialized = true;
         }
 
-        public static void OpenSessionsForm()
+        public static void OpenViewAllSessionsForm()
         {
             if (_sessionsFormInitialized)
             {
@@ -38,6 +39,12 @@ namespace DistractionsTracker.Helpers
 
         public static void OpenSessionForm(int sessionId)
         {
+            if (_initializedSessionForms.Contains(sessionId))
+            {
+                return;
+            }
+
+            _initializedSessionForms.Add(sessionId);
             new ViewSession(sessionId).Show();
         }
 
@@ -45,8 +52,9 @@ namespace DistractionsTracker.Helpers
 
         #region Close Form Methods
 
-        public static void CloseOverallStatsForm() => _overallStatsFormInitialized = false;
-        public static void CloseSessionsForm() => _sessionsFormInitialized = false;
+        public static void CloseDataSummaryForm() => _dataSummaryFormInitialized = false;
+        public static void CloseViewAllSessionsForm() => _sessionsFormInitialized = false;
+        public static void CloseSessionForm(int sessionId) => _initializedSessionForms.Remove(sessionId);
 
         #endregion
     }

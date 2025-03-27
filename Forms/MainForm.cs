@@ -105,7 +105,7 @@ namespace DistractionsTracker
 
         private void viewSessionsBtn_Click(object sender, EventArgs e)
         {
-            FormManager.OpenSessionsForm();
+            FormManager.OpenViewAllSessionsForm();
         }
 
         private void viewOverallStatsBtn_Click(object sender, EventArgs e)

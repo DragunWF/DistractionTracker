@@ -20,14 +20,14 @@ namespace DistractionsTracker.Forms
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
 
-            this.FormClosed += OverallStats_FormClosed;
+            this.FormClosed += DataSummary_FormClosed;
         }
 
         #region Miscellenous Events
 
-        private void OverallStats_FormClosed(object sender, FormClosedEventArgs e)
+        private void DataSummary_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormManager.CloseOverallStatsForm();
+            FormManager.CloseDataSummaryForm();
         }
 
         #endregion

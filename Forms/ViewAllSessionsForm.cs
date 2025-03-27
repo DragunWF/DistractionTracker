@@ -28,28 +28,11 @@ namespace DistractionsTracker.Forms
             PopulateDataGridView();
         }
 
-        private void PopulateDataGridView()
-        {
-            sessionDataGridView.Rows.Clear();
-
-            List<Session> sessions = DataManager.GetSessions();
-            foreach (Session session in sessions)
-            {
-                sessionDataGridView.Rows.Add(
-                    session.Id,
-                    session.StartDate,
-                    session.EndDate,
-                    session.TotalDistractionCount,
-                    session.DistractionTypes
-                );
-            }
-        }
-
         #region Miscellenous Events
 
         private void Session_FormClosed(object sender, FormClosedEventArgs e)
         {
-            FormManager.CloseSessionsForm();
+            FormManager.CloseViewAllSessionsForm();
         }
 
         private void sessionDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,6 +75,27 @@ namespace DistractionsTracker.Forms
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             PopulateDataGridView();
+        }
+
+        #endregion
+
+        #region Utility Methods
+
+        private void PopulateDataGridView()
+        {
+            sessionDataGridView.Rows.Clear();
+
+            List<Session> sessions = DataManager.GetSessions();
+            foreach (Session session in sessions)
+            {
+                sessionDataGridView.Rows.Add(
+                    session.Id,
+                    session.StartDate,
+                    session.EndDate,
+                    session.TotalDistractionCount,
+                    session.DistractionTypes
+                );
+            }
         }
 
         #endregion
