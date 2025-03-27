@@ -14,6 +14,7 @@
 ### Session
 
 - `Id`
+  - **Description:** Serves as a unique identifier for the session.
   - **Data Type:** `Integer`
 - `StartDate`
   - **Description:** Indicates the date of when the work session started.
@@ -28,5 +29,5 @@
   - **Description:** Indicates the total number of times the user got distracted
   - **Data Type:** `Integer`
 - `Distractions`
-  - **Description:** Contains a list of distractions that in a deep work session
+  - **Description:** Contains a list of distractions that were present in a deep work session
   - **Data Type:** `List<Distraction>`
