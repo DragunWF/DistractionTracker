@@ -1,6 +1,6 @@
 ﻿namespace DistractionsTracker.Forms
 {
-    partial class SessionsForm
+    partial class ViewAllSessionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,55 +29,27 @@
         private void InitializeComponent()
         {
             sessionDataGridView = new DataGridView();
+            label1 = new Label();
+            resetBtn = new Button();
+            refreshBtn = new Button();
+            Id = new DataGridViewTextBoxColumn();
             StartDate = new DataGridViewTextBoxColumn();
             EndDate = new DataGridViewTextBoxColumn();
             TotalDistractionCount = new DataGridViewTextBoxColumn();
             DistractionTypes = new DataGridViewTextBoxColumn();
             ViewBtn = new DataGridViewButtonColumn();
-            label1 = new Label();
-            resetBtn = new Button();
-            refreshBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)sessionDataGridView).BeginInit();
             SuspendLayout();
             // 
             // sessionDataGridView
             // 
             sessionDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            sessionDataGridView.Columns.AddRange(new DataGridViewColumn[] { StartDate, EndDate, TotalDistractionCount, DistractionTypes, ViewBtn });
+            sessionDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, StartDate, EndDate, TotalDistractionCount, DistractionTypes, ViewBtn });
             sessionDataGridView.Location = new Point(12, 53);
             sessionDataGridView.Name = "sessionDataGridView";
             sessionDataGridView.RowHeadersVisible = false;
             sessionDataGridView.Size = new Size(604, 291);
             sessionDataGridView.TabIndex = 0;
-            // 
-            // StartDate
-            // 
-            StartDate.HeaderText = "Start Date";
-            StartDate.Name = "StartDate";
-            StartDate.Width = 150;
-            // 
-            // EndDate
-            // 
-            EndDate.HeaderText = "End Date";
-            EndDate.Name = "EndDate";
-            EndDate.Width = 150;
-            // 
-            // TotalDistractionCount
-            // 
-            TotalDistractionCount.HeaderText = "Total Distraction Count";
-            TotalDistractionCount.Name = "TotalDistractionCount";
-            // 
-            // DistractionTypes
-            // 
-            DistractionTypes.HeaderText = "Distraction Types";
-            DistractionTypes.Name = "DistractionTypes";
-            // 
-            // ViewBtn
-            // 
-            ViewBtn.HeaderText = "Details";
-            ViewBtn.Name = "ViewBtn";
-            ViewBtn.Text = "View More";
-            ViewBtn.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -109,6 +81,42 @@
             refreshBtn.UseVisualStyleBackColor = true;
             refreshBtn.Click += refreshBtn_Click;
             // 
+            // Id
+            // 
+            Id.HeaderText = "ID";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // StartDate
+            // 
+            StartDate.HeaderText = "Start Date";
+            StartDate.Name = "StartDate";
+            StartDate.Width = 150;
+            // 
+            // EndDate
+            // 
+            EndDate.HeaderText = "End Date";
+            EndDate.Name = "EndDate";
+            EndDate.Width = 150;
+            // 
+            // TotalDistractionCount
+            // 
+            TotalDistractionCount.HeaderText = "Total Distraction Count";
+            TotalDistractionCount.Name = "TotalDistractionCount";
+            // 
+            // DistractionTypes
+            // 
+            DistractionTypes.HeaderText = "Distraction Types";
+            DistractionTypes.Name = "DistractionTypes";
+            // 
+            // ViewBtn
+            // 
+            ViewBtn.HeaderText = "Details";
+            ViewBtn.Name = "ViewBtn";
+            ViewBtn.Text = "View More";
+            ViewBtn.UseColumnTextForButtonValue = true;
+            // 
             // SessionsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -131,6 +139,7 @@
         private Label label1;
         private Button resetBtn;
         private Button refreshBtn;
+        private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn StartDate;
         private DataGridViewTextBoxColumn EndDate;
         private DataGridViewTextBoxColumn TotalDistractionCount;

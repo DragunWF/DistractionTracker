@@ -19,6 +19,19 @@ namespace DistractionsTracker.Helpers
             return FileManager.ReadListFromJsonFile<Session>(_dataFilePath);
         }
 
+        public static Session GetSession(int targetId)
+        {
+            List<Session> sessions = FileManager.ReadListFromJsonFile<Session>(_dataFilePath);
+            foreach (Session session in sessions)
+            {
+                if (session.Id == targetId)
+                {
+                    return session;
+                }
+            }
+            return null;
+        }
+
         public static void AddSession(Session session)
         {
             List<Session> currentSessions = FileManager.ReadListFromJsonFile<Session>(_dataFilePath);

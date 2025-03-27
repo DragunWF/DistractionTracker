@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace DistractionsTracker.Forms
 {
-    public partial class SessionsForm : Form
+    public partial class ViewAllSessionsForm : Form
     {
-        public SessionsForm()
+        public ViewAllSessionsForm()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -22,6 +22,7 @@ namespace DistractionsTracker.Forms
 
             sessionDataGridView.ReadOnly = true;
             sessionDataGridView.AllowUserToAddRows = false;
+            sessionDataGridView.CellClick += sessionDataGridView_CellClick;
             this.FormClosed += Session_FormClosed;
 
             PopulateDataGridView();
@@ -35,6 +36,7 @@ namespace DistractionsTracker.Forms
             foreach (Session session in sessions)
             {
                 sessionDataGridView.Rows.Add(
+                    session.Id,
                     session.StartDate,
                     session.EndDate,
                     session.DistractionTypes,
@@ -48,6 +50,24 @@ namespace DistractionsTracker.Forms
         private void Session_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormManager.CloseSessionsForm();
+        }
+
+        private void sessionDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if a valid row is clicked (not header row)
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = sessionDataGridView.Rows[e.RowIndex];
+                try
+                {
+                    int sessionId = int.Parse(selectedRow.Cells[0].Value?.ToString());
+                    FormManager.OpenSessionForm(sessionId);
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show($"An unexpected error has occured! {err.Message}", "Error");
+                }
+            }
         }
 
         #endregion

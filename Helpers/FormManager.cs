@@ -32,8 +32,13 @@ namespace DistractionsTracker.Helpers
                 return;
             }
 
-            new SessionsForm().Show();
+            new ViewAllSessionsForm().Show();
             _sessionsFormInitialized = true;
+        }
+
+        public static void OpenSessionForm(int sessionId)
+        {
+            new ViewSession(sessionId).Show();
         }
 
         #endregion
