@@ -15,18 +15,13 @@ namespace DistractionsTracker.Forms
 {
     public partial class DataSummaryForm : Form
     {
-        private int _totalWorkSessions = 0;
-        private int _totalDistractionCount = 0;
-        private int _totalDistractionTypes = 0;
+        private int _totalWorkSessions, _totalDistractionCount, _totalDistractionTypes;
 
-        private int _maxFrequency = int.MinValue;
-        private string _mostFrequentDistraction = "None";
+        private int _maxFrequency, _minFrequency;
+        private string _mostFrequentDistraction, _leastFrequentDistraction;
 
-        private int _minFrequency = int.MaxValue;
-        private string _leastFrequentDistraction = "None";
-
-        private HashSet<string> _uniqueDistractions = new();
-        private Dictionary<string, int> _distractionFrequencies = new();
+        private HashSet<string> _uniqueDistractions;
+        private Dictionary<string, int> _distractionFrequencies;
 
         public DataSummaryForm()
         {
@@ -57,8 +52,25 @@ namespace DistractionsTracker.Forms
 
         private void LoadData()
         {
+            ResetData();
             SummarizeData();
             SetData();
+        }
+
+        private void ResetData()
+        {
+            _totalWorkSessions = 0;
+            _totalDistractionCount = 0;
+            _totalDistractionTypes = 0;
+
+            _maxFrequency = int.MinValue;
+            _mostFrequentDistraction = "";
+
+            _minFrequency = int.MaxValue;
+            _leastFrequentDistraction = "";
+
+            _uniqueDistractions = new();
+            _distractionFrequencies = new();
         }
 
         private void SummarizeData()
