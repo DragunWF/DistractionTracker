@@ -1,6 +1,6 @@
 ﻿namespace DistractionsTracker.Forms
 {
-    partial class OverallStatsForm
+    partial class DataSummaryForm
     {
         /// <summary>
         /// Required designer variable.

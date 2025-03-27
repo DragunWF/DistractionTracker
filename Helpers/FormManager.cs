@@ -22,7 +22,7 @@ namespace DistractionsTracker.Helpers
                 return;
             }
 
-            new OverallStatsForm().Show();
+            new DataSummaryForm().Show();
             _dataSummaryFormInitialized = true;
         }
 
