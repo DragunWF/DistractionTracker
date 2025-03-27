@@ -22,6 +22,9 @@ namespace DistractionsTracker.Forms
             InitializeComponent();
             this._sessionId = sessionId;
 
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+
             distractionsDataGridView.AllowUserToAddRows = false;
             distractionsDataGridView.ReadOnly = true;
 

@@ -17,6 +17,9 @@ namespace DistractionsTracker.Forms
         {
             InitializeComponent();
 
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+
             this.FormClosed += OverallStats_FormClosed;
         }
 
