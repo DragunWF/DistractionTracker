@@ -13,8 +13,13 @@
 
 ### Session
 
-- `Date`
-  - **Description:** Indicates the date of when the work session started as a string
+- `Id`
+  - **Data Type:** `Integer`
+- `StartDate`
+  - **Description:** Indicates the date of when the work session started.
+  - **Data Type:** `String`
+- `EndDate`
+  - **Description:** Indicates the date and time of when the work session ended.
   - **Data Type:** `String`
 - `DistractionTypes`
   - **Description:** Indicates the number of different distractions that the user got distracted by in a deep work session
