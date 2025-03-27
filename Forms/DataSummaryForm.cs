@@ -36,7 +36,6 @@ namespace DistractionsTracker.Forms
             MaximizeBox = false;
             this.FormClosed += DataSummary_FormClosed;
 
-            SummarizeData();
             LoadData();
         }
 
@@ -47,9 +46,20 @@ namespace DistractionsTracker.Forms
             FormManager.CloseDataSummaryForm();
         }
 
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
         #endregion
 
         #region Utility Methods
+
+        private void LoadData()
+        {
+            SummarizeData();
+            SetData();
+        }
 
         private void SummarizeData()
         {
@@ -66,7 +76,7 @@ namespace DistractionsTracker.Forms
                 {
                     string name = distraction.DistractionName;
                     _uniqueDistractions.Add(name);
-                    
+
                     if (_distractionFrequencies.ContainsKey(name))
                     {
                         _distractionFrequencies[name] += distraction.DistractionCount;
@@ -96,7 +106,7 @@ namespace DistractionsTracker.Forms
             }
         }
 
-        private void LoadData()
+        private void SetData()
         {
             const string DEFAULT_TEXT = "No Data Available";
 

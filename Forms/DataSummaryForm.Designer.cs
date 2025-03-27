@@ -40,6 +40,7 @@
             label4 = new Label();
             label3 = new Label();
             label1 = new Label();
+            refreshBtn = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,14 +168,25 @@
             label1.TabIndex = 0;
             label1.Text = "Total Distraction Count:";
             // 
-            // OverallStatsForm
+            // refreshBtn
+            // 
+            refreshBtn.Location = new Point(83, 200);
+            refreshBtn.Name = "refreshBtn";
+            refreshBtn.Size = new Size(156, 23);
+            refreshBtn.TabIndex = 9;
+            refreshBtn.Text = "Refresh Data";
+            refreshBtn.UseVisualStyleBackColor = true;
+            refreshBtn.Click += refreshBtn_Click;
+            // 
+            // DataSummaryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(319, 212);
+            ClientSize = new Size(319, 234);
+            Controls.Add(refreshBtn);
             Controls.Add(panel1);
             Controls.Add(label2);
-            Name = "OverallStatsForm";
+            Name = "DataSummaryForm";
             Text = "Data Summary Form";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -196,5 +208,6 @@
         private Label totalDistractionTypesLabel;
         private Label totalDistractionCountLabel;
         private Label totalWorkSessionsLabel;
+        private Button refreshBtn;
     }
 }
