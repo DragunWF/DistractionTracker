@@ -110,7 +110,7 @@ namespace DistractionsTracker
 
         private void viewOverallStatsBtn_Click(object sender, EventArgs e)
         {
-            FormManager.OpenOverallStatsForm();
+            FormManager.OpenDataSummaryForm();
         }
 
         private void submitBtn_Click(object sender, EventArgs e)

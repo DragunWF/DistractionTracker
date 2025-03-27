@@ -14,7 +14,7 @@ namespace DistractionsTracker.Helpers
 
         #region Open Form Methods
 
-        public static void OpenOverallStatsForm()
+        public static void OpenDataSummaryForm()
         {
             if (_overallStatsFormInitialized)
             {

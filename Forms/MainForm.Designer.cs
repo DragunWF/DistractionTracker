@@ -127,7 +127,7 @@
             viewOverallStatsBtn.Name = "viewOverallStatsBtn";
             viewOverallStatsBtn.Size = new Size(155, 23);
             viewOverallStatsBtn.TabIndex = 8;
-            viewOverallStatsBtn.Text = "View Overall Stats";
+            viewOverallStatsBtn.Text = "View Data Summary";
             viewOverallStatsBtn.UseVisualStyleBackColor = true;
             viewOverallStatsBtn.Click += viewOverallStatsBtn_Click;
             // 
