@@ -42,6 +42,10 @@ A lightweight Windows Forms application to help you track and minimize distracti
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+### Attribution
+
+- [Distraction App Icon](https://www.flaticon.com/free-icon/distraction_8450320)
+
 ## Screenshots
 
 _Coming soon_
