@@ -8,47 +8,44 @@ The Distraction Tracker is a Windows Forms application designed to help users mo
 
 ### 2.1 Distraction Logging
 
-- The application SHALL provide a text input box for users to enter distractions in real-time
-- Users MUST be able to add a new distraction by:
-  - Typing the distraction description
-  - Clicking an "Add Distraction" button
-  - By pressing the ENTER key
+- [x] The application SHALL provide a text input box for users to enter distractions in real-time
+- [x] Users MUST be able to add a new distraction by:
+  - [x] Typing the distraction description
+  - [x] Clicking an "Add Distraction" button
+  - [x] By pressing the ENTER key
+  - [x] Clicking the most recently entered distractions to increment its count via a combo box
 
 ### 2.2 Distraction List Management
 
-- The application SHALL display a list of distractions that includes:
-  - Distraction description
-  - Number of times each distraction occurred
-  - Timestamp of first and last occurrence
-- Users MUST be able to:
-  - View the complete list of distractions
-  - Clear the entire distraction list
-  - Delete individual distraction entries
+- [x] The application SHALL display a list of distractions that includes:
+  - [x] Distraction name
+  - [x] Number of times each distraction occurred
+- [x] Users MUST be able to:
+  - [x] View the complete list of distractions
+  - [x] Clear the entire distraction list
+  - [x] Delete individual distraction entries
 
 ### 2.3 Data Persistence
 
-- The application SHALL use JSON for data storage
-- Distraction data MUST be:
-  - Automatically saved after each new entry
-  - Loaded automatically when the application starts
-- Stored data SHALL include:
-  - Distraction description
-  - Occurrence count
-  - First occurrence timestamp
-  - Last occurrence timestamp
+- [x] The application SHALL use JSON for data storage
 
 ### 2.4 Session Management
 
-- Users MUST be able to:
-  - Start a new work session
-  - End the current work session
-  - Reset distraction statistics for a new session
+- [x] Users MUST be able to:
+  - [x] Start a new work session
+  - [x] See the timestamp of start and end of a work session
+  - [x] End the current work session
+  - [x] Reset distraction statistics for a new session
+  - [x] See a complete history of previous work sessions
+    - [x] Be able to view each individual work session in detail
 
 ### 2.5 Reporting and Insights
 
-- The application SHALL provide basic reporting features:
-  - Total number of distractions per session
-  - Most frequent distractions
+- [x] The application SHALL provide basic reporting features:
+  - [x] Total number of deep work sessions
+  - [x] Total number of distractions per session
+  - [x] Most frequent distraction
+  - [x] Least frequent distraction
 
 ## 3. Non-Functional Requirements
 
