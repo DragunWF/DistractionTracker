@@ -137,7 +137,9 @@ namespace DistractionsTracker
 
         private void AddDistractionToList(string submittedDistraction)
         {
+            const string DEFAULT_VALUE = "[no name]";
             bool isNewDistraction = true;
+            submittedDistraction = Utils.ToTitleCase(submittedDistraction);
 
             // Increments a distraction's count if it already exists
             foreach (DataGridViewRow row in distractionDataGridView.Rows)
@@ -145,11 +147,13 @@ namespace DistractionsTracker
                 if (!row.IsNewRow)
                 {
                     string distraction = row.Cells[0].Value?.ToString();
-                    distraction ??= "[No Name]"; // Default value
+                    distraction ??= DEFAULT_VALUE;
+
                     int count = Utils.GetCountCellValue(row.Cells[1].Value?.ToString());
+                    
 
                     // Case-insensitivity
-                    if (distraction.ToLower() == submittedDistraction.ToLower())
+                    if (distraction == submittedDistraction)
                     {
                         row.Cells[1].Value = count + 1;
                         isNewDistraction = false;

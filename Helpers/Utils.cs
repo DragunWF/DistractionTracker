@@ -39,6 +39,19 @@ namespace DistractionsTracker.Helpers
             return count;
         }
 
+        public static string ToTitleCase(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return "";
+            }
+            if (text.Length == 1)
+            {
+                return text.ToUpper();
+            }
+            return $"{text[0].ToString().ToUpper()}{text.Substring(1).ToLower()}";
+        }
+
         public static string GetCurrentDateTimeString()
         {
             return DateTime.Now.ToString("MMMM d, yyyy - h:mm tt");
