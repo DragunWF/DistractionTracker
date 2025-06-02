@@ -172,6 +172,7 @@ namespace DistractionsTracker
 
         private void UpdateDistractionComboBox()
         {
+            distractionComboBox.Items.Clear();
             distractionComboBox.Items.AddRange(_recentDistractions.ToArray());
         }
 
